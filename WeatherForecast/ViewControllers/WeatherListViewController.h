@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  WeatherListViewController.h
 //  WeatherForecast
 //
 //  Created by MOHIT MATHUR on 22/06/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface WeatherListViewController : UIViewController
 
 @end
-
