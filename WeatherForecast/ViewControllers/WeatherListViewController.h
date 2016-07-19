@@ -6,8 +6,6 @@
 //  Copyright © 2016 mohit. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface WeatherListViewController : UIViewController
 
 @end

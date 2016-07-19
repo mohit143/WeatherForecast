@@ -6,8 +6,15 @@
 //  Copyright © 2016 mohit. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface Temperature : NSObject
+
+@property(nonatomic)float morningTemperature;
+@property(nonatomic)float dayTemperature;
+@property(nonatomic)float eveningTemperature;
+@property(nonatomic)float nightTemperature;
+@property(nonatomic)float minTemperature;
+@property(nonatomic)float maxTemperature;
+
+-(Temperature *)setObject:(NSDictionary *)weatherDict;
 
 @end

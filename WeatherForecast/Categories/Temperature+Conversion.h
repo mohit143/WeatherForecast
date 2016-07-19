@@ -6,8 +6,9 @@
 //  Copyright © 2016 mohit. All rights reserved.
 //
 
-#import "Temperature.h"
-
 @interface Temperature (Conversion)
+
+- (Temperature *)convertIntoCelsius:(Temperature *)Fahrenheit;
+- (Temperature *)convertIntoFahrenheit:(Temperature *)Celsius;
 
 @end

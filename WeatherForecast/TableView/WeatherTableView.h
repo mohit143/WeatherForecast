@@ -6,8 +6,19 @@
 //  Copyright © 2016 mohit. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@protocol WeatherTableViewCustomDelegate <NSObject>
 
-@interface WeatherTableView : UITableView
+@required
+- (NSString *)checkCellType:(NSIndexPath *)currentIndexPath;
+@optional
+- (NSInteger )getNumberOfSections:(UITableView *)currentTableView;
+-(void)tableView:(UITableView *)tableView tappedRowAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+@interface WeatherTableView : UITableView <UITableViewDelegate,UITableViewDataSource>
+
+- (void)reloadTableViewWithData:(NSMutableArray *)weatherArray;
+@property (nonatomic, assign) id<WeatherTableViewCustomDelegate> customDelegate;
 
 @end

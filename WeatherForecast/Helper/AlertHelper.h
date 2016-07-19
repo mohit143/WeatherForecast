@@ -6,8 +6,9 @@
 //  Copyright © 2016 mohit. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface AlertHelper : NSObject
+
++(void) displayAlert:(NSString *)messageString withDelegate:(UIViewController *)controller;
++(void) displayAlertBlock:(NSString *)messageString forViewController:(UIViewController *)controller withCallBack:(AllApi)alertCallBack;
 
 @end

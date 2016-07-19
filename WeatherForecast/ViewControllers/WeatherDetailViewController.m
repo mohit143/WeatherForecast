@@ -8,15 +8,28 @@
 
 #import "WeatherDetailViewController.h"
 
-@interface WeatherDetailViewController ()
+@interface WeatherDetailViewController ()<WeatherTableViewCustomDelegate>
+{
+    __weak  IBOutlet WeatherTableView * weatherDetailTableView;
+    __weak IBOutlet UILabel *weatherDescriptionLabel;
+    __weak IBOutlet UILabel *dayTemperatureLabel;
+    __weak IBOutlet UILabel *weatherDateLabel;
+    __weak IBOutlet UIImageView *weatherImageView;
+    __weak IBOutlet UILabel *detailHeaderLabel;
+    NSDateFormatter *formatter;
+}
 
 @end
 
 @implementation WeatherDetailViewController
 
+@synthesize weather;
+
+#pragma mark - View Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    formatter = [[NSDateFormatter alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +37,37 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //Setting Detail weather object to Detail page
+    detailHeaderLabel.text = weather.place;
+    [weatherImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@.png",PREF_BASE_ICON_URL,weather.icon]]];
+    weatherDescriptionLabel.text = weather.weatherDescription;
+    dayTemperatureLabel.text = [NSString stringWithFormat:@"%.2f°",weather.temperature.dayTemperature];
+    formatter.dateFormat = @"MMM dd yyyy";
+    weatherDateLabel.text = ([DateHelper compareOnlyDates:weather.date toDate:[NSDate date]] == NSOrderedSame) ? @"Today" : [formatter stringFromDate:weather.date];
+    weatherDetailTableView.customDelegate = self;
+    [weatherDetailTableView reloadTableViewWithData:[[NSMutableArray alloc]initWithObjects:weather, nil]];
+    
 }
-*/
+- (NSString *)checkCellType:(NSIndexPath *)currentIndexPath
+{
+    //Checking cell type
+    return (currentIndexPath.section == 0) ? @"WeatherDetailTemperatureTableViewCell" : @"WeatherDetailOtherTableViewCell";
+}
+
+- (NSInteger )getNumberOfSections:(UITableView *)currentTableView
+{
+    //Returning number of sections
+    return 7;
+}
+
+#pragma mark - IBActions
+
+- (IBAction)goBack:(id)sender {
+    //Taking Back to list page
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

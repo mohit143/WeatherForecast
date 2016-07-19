@@ -6,8 +6,8 @@
 //  Copyright © 2016 mohit. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface ColorHelper : NSObject
+
++(CAGradientLayer *)setGradient:(UIColor *)topColor and:(UIColor *)bottomColor;
 
 @end

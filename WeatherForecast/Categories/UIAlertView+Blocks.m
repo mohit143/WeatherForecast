@@ -26,8 +26,6 @@
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "UIAlertView+Blocks.h"
-
 #import <objc/runtime.h>
 
 static const void *UIAlertViewOriginalDelegateKey                   = &UIAlertViewOriginalDelegateKey;

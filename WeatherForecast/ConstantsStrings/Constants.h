@@ -6,8 +6,10 @@
 //  Copyright © 2016 mohit. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface Constants : NSObject
+
+extern NSString * const PREF_API;
+extern NSString * const PREF_BASE_ICON_URL;
+
 
 @end

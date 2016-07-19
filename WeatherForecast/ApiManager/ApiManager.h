@@ -6,8 +6,9 @@
 //  Copyright © 2016 mohit. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface ApiManager : NSObject
+
+typedef void (^AllApi)(NSDictionary *result, NSError *error, BOOL success);
++ (void)requestForAllApionView:(UIViewController *)currentController withResponse:(AllApi)callback;
 
 @end

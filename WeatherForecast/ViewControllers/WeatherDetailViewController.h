@@ -6,8 +6,8 @@
 //  Copyright © 2016 mohit. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface WeatherDetailViewController : UIViewController
+
+@property (strong,nonatomic)Weather *weather;
 
 @end

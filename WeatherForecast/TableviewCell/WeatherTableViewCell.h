@@ -6,8 +6,10 @@
 //  Copyright © 2016 mohit. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface WeatherTableViewCell : UITableViewCell
+
+- (void)configureListViewCell:(Weather *)weather;
+- (void)configureDetailViewOtherCellWithIndexpath:(NSIndexPath *)currentIndexpath withObject:(Weather *)weather;
+- (void)configureDetailViewTemperatureCell:(Weather *)weather;
 
 @end

@@ -6,8 +6,6 @@
 //  Copyright © 2016 mohit. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface DateHelper : NSObject
-
++ (NSComparisonResult)compareOnlyDates:(NSDate *)date1 toDate:(NSDate *)date2;
 @end
